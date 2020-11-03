@@ -1,4 +1,6 @@
 
+cd ~
+
 # wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz
 wget http://archive.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
 
@@ -55,7 +57,7 @@ echo "
     </property>
     <property>
         <name>dfs.blocksize</name>
-        <value>blocksizeNumBytes</value>
+        <value>100m</value>
     </property>
 </configuration>
 " > mapred-site.xml
@@ -72,21 +74,21 @@ echo "
     </property>
     <property>
         <name>yarn.nodemanager.resource.cpu-vcores</name>
-        <value>core_number</value>
+        <value>32</value>
     </property>
     <property>
         <name>yarn.scheduler.minimum-allocation-mb</name>
-        <value>min_mb</value>
+        <value>10</value>
         <description></description>
     </property>
     <property>
         <name>yarn.scheduler.maximum-allocation-mb</name>
-        <value>max_mb</value>
+        <value>1024</value>
         <description></description>
     </property>
     <property>
         <name>yarn.nodemanager.resource.memory-mb</name>
-        <value>res_md</value>
+        <value>32000</value>
         <description></description>
     </property>
 </configuration>
@@ -100,7 +102,7 @@ export PATH=$PATH:$HADOOP_HOME/bin
 
 # Start HadoopStep 
 # 1.Format the HDFS:$ cd hadoop-2.7.1
-# $ bin/hadoop namenode -formatStep 
+# $ bin/hadoop namenode -format
 # 2.Start Hadoop:$ sbin/start-all.sh
 
 # Stop Hadoop:
