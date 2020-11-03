@@ -1,11 +1,19 @@
 
-wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz
+# wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz
+wget http://archive.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
 
 tar -zxvf hadoop-2.7.1.tar.gz
 
 cd hadoop-2.7.1/etc/hadoop
 
-echo "export JAVA_HOME=" > hadoop-env.sh
+
+apt-get update && apt-get install -y software-properties-common
+
+add-apt-repository ppa:openjdk-r/ppa
+
+apt-get update && apt-get -y install  openjdk-8-jdk 
+
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/" > hadoop-env.sh
 
 echo "
 <configuration>
