@@ -2,7 +2,9 @@
 set -x
 
 
-install docker
+#install docker
+apt-get update
+
 apt-get install -y \
  apt-transport-https \
  ca-certificates \
