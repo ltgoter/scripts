@@ -8,13 +8,13 @@ mkdir /mnt2 && /usr/local/etc/emulab/mkextrafs.pl /mnt2
 
 cd ~
 
-git clone https://github.com/ltstriker/scripts.git
+# git clone https://github.com/ltstriker/scripts.git
 
-cd scripts/docker
+# cd scripts/docker
 
-chmod +x *.sh
+# chmod +x *.sh
 
-./install
+# ./install
 
 systemctl stop docker
 
