@@ -28,7 +28,7 @@ echo "
     </property>
     <property>
     <name>fs.default.name</name>
-    <value>hdfs://10.10.1.2:9100</value>
+    <value>hdfs://localhost:9000</value>
     </property>
 </configuration>" >core-site.xml
 
@@ -61,6 +61,14 @@ echo "
         <name>dfs.blocksize</name>
         <value>100m</value>
     </property>
+    <property>
+        <name>mapred.min.split.size</name>
+        <value>16</value>
+    </property>
+    <property>
+        <name>mapred.reduce.tasks</name>
+        <value>16</value>
+    </property>
 </configuration>
 " > mapred-site.xml
 
@@ -85,7 +93,7 @@ echo "
     </property>
     <property>
         <name>yarn.scheduler.maximum-allocation-mb</name>
-        <value>1024</value>
+        <value>32000</value>
         <description></description>
     </property>
     <property>
@@ -96,6 +104,7 @@ echo "
 </configuration>
 " > yarn-site.xml
 
+# echo "localhost" > slaves
 echo "10.10.1.1" > slaves
 echo "10.10.1.2" > masters
 
@@ -157,7 +166,7 @@ echo "10.10.1.2" > masters
 export SPARK_HOME=/root/spark-1.5.2-bin-hadoop2.6
 export PATH=$PATH:$SPARK_HOME/sbin
 
-
+cd ~
 
 apt-get install -y make g++
 
